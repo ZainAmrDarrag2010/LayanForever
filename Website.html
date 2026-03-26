@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Our Story | A Surprise for You</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #ffeff2; 
+            --accent: #ffb7c5;
+            --text: #4a3a3a;
+            --romantic-red: #e63946; 
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Quicksand', sans-serif;
+            color: var(--text);
+            margin: 0;
+            padding: 40px 15px 150px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* Gliding Red Hearts */
+        .gliding-heart {
+            position: fixed;
+            top: -10%;
+            color: var(--romantic-red);
+            user-select: none;
+            pointer-events: none;
+            z-index: -1;
+            animation: glide linear infinite;
+        }
+
+        @keyframes glide {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.7; }
+            80% { opacity: 0.7; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+
+        header { text-align: center; margin-bottom: 60px; }
+        h1 { font-family: 'Dancing Script', cursive; color: var(--romantic-red); font-size: 3rem; margin-bottom: 10px; }
+        header p { font-size: 1.1rem; margin-top: 0; font-weight: 600; }
+
+        .timeline {
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
+
+        .memory {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+
+        .memory.visible { opacity: 1; transform: translateY(0); }
+        .memory:nth-child(even) { flex-direction: row-reverse; }
+
+        .memory-text { flex: 1.2; }
+        .memory-text h3 { font-family: 'Dancing Script', cursive; color: var(--romantic-red); font-size: 2rem; margin-bottom: 10px; }
+        .memory-text p { line-height: 1.6; font-size: 1.1rem; }
+
+        .memory-image {
+            flex: 1;
+            background: white;
+            padding: 12px 12px 35px 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+            border: 1px solid #fff;
+            transform: rotate(-2deg);
+        }
+
+        .memory:nth-child(even) .memory-image { transform: rotate(2deg); }
+        .memory-image img { width: 100%; height: auto; display: block; border-radius: 2px; }
+
+        /* Future Spot updated to support Flex layout */
+        .future-spot {
+            border: 3px dashed var(--romantic-red);
+            border-radius: 30px;
+            padding: 30px;
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* SIMPLE MUSIC PLAYER */
+        .music-outer-container {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1000;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .music-note-bubble {
+            background: white;
+            padding: 8px 15px;
+            border-radius: 15px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.1rem;
+            color: var(--romantic-red);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 1px solid var(--accent);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .music-note-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 6px 6px 0;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+        }
+
+        audio {
+            height: 45px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            filter: sepia(20%) hue-rotate(-50deg) saturate(150%);
+        }
+
+        strong { color: var(--romantic-red); font-weight: 700; }
+
+        @media (max-width: 650px) {
+            .memory, .memory:nth-child(even) { flex-direction: column; text-align: center; }
+            .memory-text { order: 1; }
+            .memory-image { order: 2; width: 90%; transform: rotate(0deg) !important; }
+            h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>To My Favorite Person...</h1>
+        <p>A few of my favorite moments with you.</p><br><p>By Zain ❤️</p>
+    </header>
+
+    <div class="timeline">
+        
+        <div class="memory">
+            <div class="memory-text">
+                <h3>Where it all began</h3>
+                <p>I still remember Abha's trip. This was pure childhood innocence. This was the first time for me to see you, and immidiately your shiny eyes pierced my heart. At this moment, I knew you would be something too special in my life.</p>
+            </div>
+            <div class="memory-image">
+                <img src="assets/Abha.webp" alt="Memory 1">
+            </div>
+        </div>
+
+        <div class="memory">
+            <div class="memory-text">
+                <h3>Always Near</h3>
+                <p>Although you are <strong>here</strong> and I am <strong>there</strong>, our hearts are very, <strong>very near.</strong></p>
+                <p style="font-style: italic; color: #888; font-size: 0.95rem;">Distance means so little, cause you just mean a lot for me.</p>
+            </div>
+            <div class="memory-image">
+                <img src="assets/Mappp.png" alt="Map">
+            </div>
+        </div>
+
+        <div class="memory">
+            <div class="memory-text">
+                <h3>My favourite day!</h3>
+                <p>We went to Riyadh Gallery. We played a lot. We then sat together, while me showing you my FIFA lineup! That really made ma happy. We had lunch together, we went to a park, and we even petted a cute cat! This was pure happiness.</p>
+            </div>
+            <div class="memory-image">
+                <img src="assets/IMG1.jpeg" alt="Memory 2">
+            </div>
+        </div>
+
+        <div class="memory future-spot">
+            <div class="memory-text">
+                <h3>The Best is Yet to Come</h3>
+                <p>Maybe one day, we meet in such a Café, where I would tell you everything inside my heart that I couldn't say till now. ❤️</p>
+            </div>
+            <div class="memory-image">
+                <img src="assets\IMG3.jpg" alt="Future Moment">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="music-outer-container">
+        <div class="music-note-bubble">
+            I made this song for you! This song just speaks my heart out! I wrote the lyrics! Hope u like it. ❤️
+        </div>
+        <audio controls>
+            <source src="assets/YouForever.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('gliding-heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.fontSize = (Math.random() * 15 + 10) + 'px';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 7000);
+        }
+        setInterval(createHeart, 450);
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.memory').forEach(m => observer.observe(m));
+    </script>
+
+</body>
+</html>
